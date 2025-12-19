@@ -161,6 +161,5 @@ Contributions, ideas, and suggestions are welcome.
 ## License
 
 This project is available under the MIT License.  
-You are free to use, modify, and share it in your own projects.[1]
+You are free to use, modify, and share it in your own projects.
 
-[1](https://www.youtube.com/watch?v=Ci9Z-5cekrs)
