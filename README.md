@@ -1,169 +1,164 @@
+Recipe Finder with Ingredient Filters
+Discover what you can cook right now with the ingredients you already have.
+Recipe Finder with Ingredient Filters is a modern, responsive web app built using HTML, CSS, and vanilla JavaScript that allows users to filter recipes by selected ingredients, cook time, and recipe name.​
 
-***
+Features
+Ingredient-based filtering
+Select one or more ingredients using interactive chips to instantly narrow down matching recipes.​
 
-# Recipe Finder with Ingredient Filters
+Smart filters
 
-Discover what you can cook **right now** with the ingredients you already have.  
-Recipe Finder with Ingredient Filters is a modern, responsive web app built using **HTML, CSS, and vanilla JavaScript** that allows users to filter recipes by selected ingredients, cook time, and recipe name.[1]
+Filter by maximum cook time (in minutes).
 
-***
+Search recipes by name or keyword.​
 
-## Features
+Beautiful recipe cards
+Each recipe is displayed as a visual card with:
 
-- **Ingredient-based filtering**  
-  Select one or more ingredients using interactive chips to instantly narrow down matching recipes.[2]
+High-quality image
 
-- **Smart filters**  
-  - Filter by **maximum cook time** (in minutes).  
-  - Search recipes by **name or keyword**.[1]
+Title and tags (for example, vegan, high-protein, quick)
 
-- **Beautiful recipe cards**  
-  Each recipe is displayed as a visual card with:  
-  - High-quality image  
-  - Title and tags (for example, vegan, high-protein, quick)  
-  - Cook time and servings  
-  - Basic nutrition info: calories, protein, carbs, fats[2]
+Cook time and servings
 
-- **Recipe details modal**  
-  Click “View details” to open a modal showing:  
-  - Full ingredient list  
-  - Cooking instructions  
-  - Nutrition overview[2]
+Basic nutrition info: calories, protein, carbs, fats.​
 
-- **Save your favorites**  
-  Mark recipes as Saved with a single click for quick access during a session.[3]
+Recipe details modal
+Click “View details” to open a modal showing:
 
-- **Responsive UI**  
-  Layout designed with CSS Grid and Flexbox to look great on mobile, tablet, and desktop.[1]
+Full ingredient list
 
-- **Clean, modular JavaScript**  
-  Separation of concerns between:  
-  - State management  
-  - Filtering logic  
-  - DOM rendering  
-  - Modal and interaction handlers[3]
+Cooking instructions
 
-***
+Nutrition overview.​
 
-## Tech Stack
+Save your favorites
+Mark recipes as Saved with a single click for quick access during a session.​
 
-- **HTML5** – semantic structure and accessible components[1]
-- **CSS3** – responsive layout, modern styling, and UI polish[1]
-- **JavaScript (ES6+)** – modular logic, DOM manipulation, and filtering[3]
-- **Mock API data** – local structured dataset that mimics a real REST API[2]
+Responsive UI
+Layout designed with CSS Grid and Flexbox to look great on mobile, tablet, and desktop.​
 
-***
+Clean, modular JavaScript
+Separation of concerns between:
 
-## Getting Started
+State management
 
-### 1. Clone the repository
+Filtering logic
 
-```bash
+DOM rendering
+
+Modal and interaction handlers.​
+
+Tech Stack
+HTML5 – semantic structure and accessible components.​
+
+CSS3 – responsive layout, modern styling, and UI polish.​
+
+JavaScript (ES6+) – modular logic, DOM manipulation, and filtering.​
+
+Mock API data – local structured dataset that mimics a real REST API.​
+
+Getting Started
+1. Clone the repository
+bash
 git clone https://github.com/your-username/Recipe-Finder-with-Ingredient-Filters.git
 cd Recipe-Finder-with-Ingredient-Filters
-```
-
-### 2. Open the app
-
+2. Open the app
 No build step required.
 
-```bash
+bash
 # On most systems you can simply open index.html
 # Option 1: Double-click index.html
 # Option 2: Use a simple local server
 npx serve .
-```
-
 Then visit:
 
-```text
+text
 http://localhost:8000
-```
+How to Use
+Select ingredients
 
-***
+Click on the ingredient chips (for example, Tomato, Garlic, Chicken).
 
-## How to Use
+Selected chips are highlighted.​
 
-1. **Select ingredients**  
-   - Click on the ingredient chips (for example, Tomato, Garlic, Chicken).  
-   - Selected chips are highlighted.[2]
+Refine with extra filters (optional)
 
-2. **Refine with extra filters (optional)**  
-   - Enter Max cook time (minutes).  
-   - Type a recipe name or keyword like pasta or salad.[1]
+Enter Max cook time (minutes).
 
-3. **Search recipes**  
-   - Click Search Recipes to apply filters.  
-   - Matching recipes are shown as cards in the grid.[2]
+Type a recipe name or keyword like pasta or salad.​
 
-4. **View full details**  
-   - Click View details on any card to open the recipe modal.  
-   - Read ingredients and instructions.[2]
+Search recipes
 
-5. **Save a recipe**  
-   - Click Save on a card to mark it as a favorite for this session.[3]
+Click Search Recipes to apply filters.
 
-6. **Reset everything**  
-   - Click Clear Filters to reset ingredient selections and input fields.[1]
+Matching recipes are shown as cards in the grid.​
 
-***
+View full details
 
-## Project Structure
+Click View details on any card to open the recipe modal.
 
-```text
+Read ingredients and instructions.​
+
+Save a recipe
+
+Click Save on a card to mark it as a favorite for this session.​
+
+Reset everything
+
+Click Clear Filters to reset ingredient selections and input fields.​
+
+Project Structure
+text
 .
 ├── index.html     # Main HTML page and layout
 ├── styles.css     # Styling, layout, and responsive design
 └── app.js         # Mock data, filtering logic, and UI interactions
-```
+Implementation Highlights
+Ingredient filter logic
 
+A recipe must contain all selected ingredients to match.
 
-***
+Filters are combined with cook time and name search for precise results.​
 
-## Implementation Highlights
+Mock API approach
 
-- **Ingredient filter logic**  
-  - A recipe must contain all selected ingredients to match.  
-  - Filters are combined with cook time and name search for precise results.[2]
+Recipes are defined as structured JavaScript objects.
 
-- **Mock API approach**  
-  - Recipes are defined as structured JavaScript objects.  
-  - The data design makes it easy to swap in a real API later (for example, public recipe APIs).[2]
+The data design makes it easy to swap in a real API later (for example, public recipe APIs).​
 
-- **Maintainable code structure**  
-  - Functions such as `filterRecipes`, `renderRecipes`, `openRecipeModal`, and `toggleSaveRecipe` keep logic modular and readable.  
-  - State is tracked with simple in-memory structures for clarity.[3]
+Maintainable code structure
 
-***
+Functions such as filterRecipes, renderRecipes, openRecipeModal, and toggleSaveRecipe keep logic modular and readable.
 
-## Possible Improvements
+State is tracked with simple in-memory structures for clarity.​
 
+Possible Improvements
 Some ideas you or contributors can explore next:
 
-- Integrate a real recipe API instead of mock data  
-- Add dietary filters (vegan, vegetarian, gluten-free, high-protein, etc.)  
-- Implement pagination or infinite scroll for large recipe sets  
-- Persist saved recipes using localStorage  
-- Add dark/light mode toggle  
-- Support multilingual UI text
+Integrate a real recipe API instead of mock data
 
-***
+Add dietary filters (vegan, vegetarian, gluten-free, high-protein, etc.)
 
-## Contributing
+Implement pagination or infinite scroll for large recipe sets
 
+Persist saved recipes using localStorage
+
+Add dark/light mode toggle
+
+Support multilingual UI text.​
+
+Contributing
 Contributions, ideas, and suggestions are welcome.
 
-1. Fork the repository  
-2. Create a feature branch  
-3. Commit your changes  
-4. Open a pull request describing your improvements
+Fork the repository
 
-***
+Create a feature branch
 
-## License
+Commit your changes
 
-This project is available under the MIT License.  
+Open a pull request describing your improvements.​
+
+License
+This project is available under the MIT License.
 You are free to use, modify, and share it in your own projects.
-[3](https://github.com/theorib/food-recipe-app-vanilla-javascript)
-[4](https://www.themealdb.com/api.php)
-[5](https://github.com/topics/recipe-website?l=javascript)
