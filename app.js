@@ -1,5 +1,5 @@
-// ===== Mock API data =====
-// This simulates a structured API response for recipes with nutrition.
+// ===== --Mock API data =====
+//  Adi Naik -- This simulates a structured API response for recipes with nutrition.
 const MOCK_RECIPES = [
   {
     id: "r1",
@@ -414,3 +414,4 @@ function escapeHtml(str) {
 
 // Start app
 init();
+
