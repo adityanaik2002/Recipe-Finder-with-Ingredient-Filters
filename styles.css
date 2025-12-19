@@ -1,0 +1,507 @@
+/* ===== CSS Reset (minimal) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+/* ===== Layout ===== */
+.app-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  background: radial-gradient(circle at top left, #1e293b, #020617 60%);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Stack on small screens */
+@media (max-width: 768px) {
+  .app-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ===== Filters Panel ===== */
+.filters-panel {
+  background: #020617;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  position: sticky;
+  top: 0.75rem;
+  align-self: flex-start;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.section-help {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #cbd5f5;
+}
+
+/* Ingredient chips */
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #e5e7eb;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.9);
+  transition: all 0.15s ease-out;
+}
+
+.chip:hover {
+  background: #1e293b;
+}
+
+.chip.selected {
+  background: linear-gradient(135deg, #22c55e, #22d3ee);
+  color: #020617;
+  border-color: transparent;
+}
+
+/* Buttons */
+.filter-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out,
+    background 0.12s ease-out;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #22d3ee);
+  color: #020617;
+  box-shadow: 0 12px 20px rgba(34, 197, 94, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(34, 197, 94, 0.35);
+}
+
+.btn-secondary {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+.btn-secondary:hover {
+  background: #111827;
+}
+
+/* Extra filters */
+.extra-filters {
+  border-top: 1px dashed rgba(148, 163, 184, 0.3);
+  padding-top: 0.9rem;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+}
+
+.filter-field span {
+  color: #9ca3af;
+}
+
+.filter-field input {
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: #020617;
+  color: #e5e7eb;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.filter-field input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+}
+
+/* ===== Results Panel ===== */
+.results-panel {
+  background: radial-gradient(circle at top right, #111827, #020617 70%);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.results-meta {
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+/* Grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Recipe card */
+.recipe-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+  transition: transform 0.14s ease-out, box-shadow 0.14s ease-out,
+    border-color 0.14s ease-out;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+.recipe-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1);
+  transition: transform 0.35s ease-out;
+}
+
+.recipe-card:hover .recipe-image {
+  transform: scale(1.05);
+}
+
+.recipe-badge {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: #e5e7eb;
+  backdrop-filter: blur(6px);
+}
+
+/* Card content */
+.recipe-body {
+  padding: 0.85rem 0.85rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.recipe-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.recipe-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.recipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.recipe-tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #bbf7d0;
+}
+
+.recipe-nutrition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+}
+
+.recipe-nutrition span {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+}
+
+/* Card footer */
+.recipe-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.recipe-footer button {
+  flex: 1;
+  margin-top: 0.45rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.6rem;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-details {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+.btn-details:hover {
+  background: #111827;
+}
+
+.btn-save {
+  background: rgba(34, 197, 94, 0.12);
+  color: #bbf7d0;
+  border: 1px solid rgba(34, 197, 94, 0.6);
+}
+
+.btn-save.saved {
+  background: rgba(34, 197, 94, 0.9);
+  color: #022c22;
+}
+
+/* Empty state */
+.empty-state {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.empty-state h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== Modal ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 60;
+  width: min(640px, 92vw);
+  max-height: 80vh;
+  overflow: hidden auto;
+  background: #020617;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8);
+  padding: 1rem 1.2rem 1.2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #e5e7eb;
+}
+
+/* Modal content */
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.modal-subtle {
+  font-size: 0.86rem;
+  color: #9ca3af;
+  margin-bottom: 0.8rem;
+}
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+}
+
+.modal-meta span {
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.modal-section-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.modal-list {
+  margin-left: 1rem;
+  font-size: 0.88rem;
+}
+
+.modal-list li + li {
+  margin-top: 0.25rem;
+}
+
+.modal-instructions {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  margin-top: 0.25rem;
+}
+
+/* Footer */
+.app-footer {
+  padding: 0.9rem 1.5rem 1.3rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
